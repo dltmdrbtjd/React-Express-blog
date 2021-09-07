@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
 
 type IUser = {
+  _id: string;
   name: string;
   userid: string;
   password: string;
+  __v?: number;
 }
 
 export const userSchema = new mongoose.Schema({
@@ -12,4 +14,4 @@ export const userSchema = new mongoose.Schema({
   password: { type: String }
 })
 
-module.exports = mongoose.model<IUser & mongoose.Document>('User', userSchema);
+export default mongoose.model<IUser & mongoose.Document>('User', userSchema);
