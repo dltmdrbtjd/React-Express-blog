@@ -1,40 +1,29 @@
-import React from 'react';
-import { useHistory } from 'react-router';
+import React, { useState } from 'react';
 import { UserLogin } from 'src/libs/api';
-import { setCookie } from '../../libs/cookie';
+import jwtDecode from 'jwt-decode';
+import { history } from 'src/modules/reducers';
 
 const LoginPage = () => {
-  const [id, setId] = React.useState('');
-  const [pw, setPw] = React.useState('');
+  const [id, setId] = useState<string>('');
+  const [pw, setPw] = useState<string>('');
 
-  const history = useHistory();
-
-  const userinfo = {
-    userid: id,
-    password: pw,
-  };
-
-  function LoginApi() {
-    UserLogin(userinfo)
+  function Login() {
+    UserLogin({ userid: id, password: pw })
       .then((res) => {
-        history.push('/');
-        const token = res.data.result.token;
-        setCookie(token);
+        const UserInfo: any = jwtDecode(res.data.result.token);
+        localStorage.setItem('result', UserInfo.user.id);
       })
-      .catch((err) => {
-        throw new Error(err);
-      });
+      .then(() => {
+        history.push('/');
+      })
+      .catch((err) => console.error(err));
   }
 
   return (
     <div>
-      <p>로그인</p>
       <input type="text" onChange={(e) => setId(e.target.value)} />
-      <br />
-      <p>패스워드</p>
       <input type="password" onChange={(e) => setPw(e.target.value)} />
-      <br />
-      <button type="submit" onClick={LoginApi}>
+      <button type="button" onClick={Login}>
         로그인
       </button>
     </div>
