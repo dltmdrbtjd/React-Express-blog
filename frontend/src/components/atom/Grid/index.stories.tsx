@@ -7,6 +7,6 @@ export default {
 };
 
 export const HELLO = () => {
-  const subTitle = 'HELLO';
+  const subTitle = 'HELLO!';
   return <Grid onClick={() => alert(subTitle)}>{subTitle}</Grid>;
 };
