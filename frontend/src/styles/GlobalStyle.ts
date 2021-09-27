@@ -3,17 +3,18 @@ import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
-  body {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    box-sizing: border-box;
-    line-height: 1.5;
-    font-family: 'NanumSquare', sans-serif;
-  }
 
   * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     margin: 0;
     padding: 0;
+    font-family: 'NanumSquare', sans-serif;
+  }
+
+  body {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+    line-height: 1.5;
     font-family: 'NanumSquare', sans-serif;
   }
 
