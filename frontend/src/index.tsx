@@ -6,12 +6,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './modules/store';
 import { history } from './modules/reducers';
+import GlobalThemeProvider from './styles/ThemeProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <App />
+        <GlobalThemeProvider>
+          <App />
+        </GlobalThemeProvider>
       </ConnectedRouter>
     </Provider>
   </React.StrictMode>,
