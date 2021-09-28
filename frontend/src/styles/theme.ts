@@ -15,10 +15,10 @@ const fontWeight = {
 };
 
 const color = {
-  gray: '3C3C3C',
-  lightGray: '575757',
-  whiteGray: 'DEDEDE',
-  bgColor: '262626',
+  gray: '#3C3C3C',
+  lightGray: '#575757',
+  whiteGray: '#DEDEDE',
+  bgColor: '#262626',
 };
 
 const theme = {
