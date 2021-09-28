@@ -1,13 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-const GlobalStyle = createGlobalStyle`
+type Prop = {
+  theme: {
+    [propName: string]: any;
+  };
+};
+
+const GlobalStyle = createGlobalStyle<Prop>`
   ${reset};
 
   * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    margin: 0;
-    padding: 0;
     font-family: 'NanumSquare', sans-serif;
   }
 
@@ -16,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     line-height: 1.5;
     font-family: 'NanumSquare', sans-serif;
+    background-color: ${({ theme }) => theme.color.bgColor};
+    margin: 0;
+    padding: 0;
   }
 
   button, input {
