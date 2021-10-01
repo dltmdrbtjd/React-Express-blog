@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
 
 type Prop = {
   theme: {
@@ -8,11 +7,12 @@ type Prop = {
 };
 
 const GlobalStyle = createGlobalStyle<Prop>`
-  ${reset};
 
   * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     font-family: 'NanumSquare', sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   body {
@@ -21,8 +21,6 @@ const GlobalStyle = createGlobalStyle<Prop>`
     line-height: 1.5;
     font-family: 'NanumSquare', sans-serif;
     background-color: ${({ theme }) => theme.color.bgColor};
-    margin: 0;
-    padding: 0;
   }
 
   button, input {
