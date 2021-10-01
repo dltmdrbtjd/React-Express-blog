@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled(Grid)`
   width: 100vw;
+  box-sizing: border-box;
   padding: 15px 0;
   background-color: ${({ theme }) => theme.color.gray};
 `;
@@ -36,4 +37,6 @@ export const NavList = styled(List)`
   font-size: ${({ theme }) => theme.fontSize.lg};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   cursor: pointer;
+
+  margin-left: 10px;
 `;
