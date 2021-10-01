@@ -29,6 +29,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'react/jsx-props-no-spreading': 0,
     'react/no-children-prop': 0,
     'consistent-return': 0,
     'no-param-reassign': 0,
