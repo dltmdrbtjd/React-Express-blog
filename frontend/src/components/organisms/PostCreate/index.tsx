@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactMarkDown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import './style.css';
+import Syntax from './syntax';
 
 function PostCreate() {
   const [markdown, setMarkdown] = useState<string>('');
@@ -17,6 +18,7 @@ function PostCreate() {
         className="markdown"
         children={markdown}
         remarkPlugins={[remarkGfm]}
+        components={Syntax}
       />
     </div>
   );
