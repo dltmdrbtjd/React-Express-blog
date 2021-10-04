@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactMarkDown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { CreatePostApi } from 'src/libs/api';
 import { history } from 'src/modules/reducers';
 import * as S from './style';
 import './style.css';
@@ -27,6 +28,11 @@ function PostCreate() {
     }
   }
 
+  function Posting() {
+    CreatePostApi(PostingContent);
+    history.goBack();
+  }
+
   return (
     <>
       <div className="container">
@@ -49,7 +55,7 @@ function PostCreate() {
           <S.Tags>
             {tags &&
               tags.map((item) => {
-                return <S.TagItem>{item}</S.TagItem>;
+                return <S.TagItem key={item}>{item}</S.TagItem>;
               })}
           </S.Tags>
           <textarea
@@ -68,7 +74,9 @@ function PostCreate() {
       </div>
       <S.PostingHeader>
         <S.Button onClick={() => history.goBack()}>나가기</S.Button>
-        <S.Button className="success">작성완료</S.Button>
+        <S.Button className="success" onClick={() => Posting()}>
+          작성완료
+        </S.Button>
       </S.PostingHeader>
     </>
   );
