@@ -6,6 +6,7 @@ type IPost = {
   content: string;
   category: string;
   tags: string[];
+  time: Date;
 };
 
 export const postSchema = new mongoose.Schema({
@@ -13,6 +14,7 @@ export const postSchema = new mongoose.Schema({
   content: { type: String },
   category: { type: String },
   tags: { type: Array },
+  time: { type: Date },
 });
 
 export default mongoose.model<IPost & mongoose.Document>('Post', postSchema);
