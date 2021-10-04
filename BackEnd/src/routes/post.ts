@@ -6,7 +6,9 @@ const router = express.Router();
 router.post('/', (req: Request, res: Response) => {
   const { title, content, category, tags } = req.body;
 
-  Post.create({ title, content, category, tags })
+  const time = Date.now() + 9 * 60 * 60 * 1000;
+
+  Post.create({ title, content, category, tags, time })
     .then(() => {
       res.sendStatus(201);
     })
