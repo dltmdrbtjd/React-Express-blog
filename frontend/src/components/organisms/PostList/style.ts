@@ -3,8 +3,7 @@ import Text from 'src/components/atom/Text';
 import styled from 'styled-components';
 
 export const PostListWrapper = styled(Grid)`
-  max-width: 530px;
-  width: 100%;
+  width: 530px;
   padding: 12px 24px;
   border: 1px solid ${({ theme }) => theme.color.gray};
   border-radius: 10px;
@@ -16,6 +15,7 @@ export const PostListTitle = styled.h2`
   color: ${({ theme }) => theme.color.whiteGray};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   font-size: ${({ theme }) => theme.fontSize.xl};
+  margin-bottom: 10px;
 `;
 
 export const PostListText = styled(Text)`
