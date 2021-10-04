@@ -7,8 +7,16 @@ export default {
   component: PostList,
 };
 
+const dummy = {
+  title: 'hello',
+  content: 'hello',
+  tags: ['hello'],
+  category: 'hello',
+  time: '2021-06-03',
+};
+
 export const PostListComponent = () => (
   <GlobalThemeProvider>
-    <PostList />
+    <PostList list={dummy} />
   </GlobalThemeProvider>
 );
