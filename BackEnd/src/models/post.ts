@@ -9,7 +9,7 @@ type IPost = {
   time: Date;
 };
 
-export const postSchema = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
   title: { type: String },
   content: { type: String },
   category: { type: String },
