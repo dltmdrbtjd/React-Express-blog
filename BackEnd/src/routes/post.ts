@@ -31,4 +31,15 @@ router.get('/', (req: Request, res: Response) => {
   });
 });
 
+router.get('/:postId', (req: Request, res: Response) => {
+  const { postId } = req.params;
+  Post.findOne({ _id: postId }, (err: Error, data: any) => {
+    if (err) {
+      return res
+        .status(500)
+        .send({ errorMessage: '게시글 불러오기에 실패했습니다.' });
+    }
+    res.json(data);
+  });
+});
 export default router;
