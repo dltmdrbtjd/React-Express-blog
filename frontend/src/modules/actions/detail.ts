@@ -4,8 +4,9 @@ import {
   LOAD_DETAIL_REQUEST,
 } from '../action-types/detail';
 
-export const loadDetailRequest = () => ({
+export const loadDetailRequest = (postId: any) => ({
   type: LOAD_DETAIL_REQUEST,
+  data: postId,
 });
 
 export const loadDetailSuccess = (content: any) => ({
