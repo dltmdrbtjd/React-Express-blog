@@ -27,7 +27,7 @@ router.get('/', (req: Request, res: Response) => {
         .status(500)
         .send({ errorMessage: '게시글 불러오기에 실패했습니다.' });
     }
-    res.json(data);
+    res.json(data.reverse());
   });
 });
 
