@@ -3,10 +3,22 @@ import { DetailPostApi } from 'src/libs/api';
 import { LOAD_DETAIL_REQUEST } from '../action-types/detail';
 import { loadDetailSuccess, loadDetailFailure } from '../actions/detail';
 
-function* detailPostSaga() {
+function* detailPostSaga(action) {
   try {
-    const response = yield call(DetailPostApi);
+    const { data } = yield call(DetailPostApi, action.data);
+    yield put(loadDetailSuccess(data));
   } catch (error) {
     console.log(error);
+    yield put(loadDetailFailure());
   }
 }
+
+function* watchDetailPost() {
+  yield takeLatest(LOAD_DETAIL_REQUEST, detailPostSaga);
+}
+
+function* detailSaga() {
+  yield all([fork(watchDetailPost)]);
+}
+
+export default detailSaga;
