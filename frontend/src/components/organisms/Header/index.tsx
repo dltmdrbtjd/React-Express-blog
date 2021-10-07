@@ -17,7 +17,7 @@ function Header() {
   return (
     <S.HeaderWrapper>
       <S.HeaderSection>
-        <S.Logo>Dev Blog</S.Logo>
+        <S.Logo onClick={() => history.push('/')}>Dev Blog</S.Logo>
         <S.Navigation>
           <S.NavList onClick={() => history.push('/')}>Home</S.NavList>
           <Posting />
