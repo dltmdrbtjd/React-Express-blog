@@ -12,7 +12,7 @@ function PostList({ list }) {
     <S.PostListWrapper onClick={() => MoveToDetail()}>
       <S.PostListTitle>{list.title}</S.PostListTitle>
       <S.PostListSection>
-        <S.PostListText>{list.category}</S.PostListText>
+        <S.PostListText>{`${list.category} / ${list.tags[0]}`}</S.PostListText>
         <S.PostListText>{date[0]}</S.PostListText>
       </S.PostListSection>
     </S.PostListWrapper>
